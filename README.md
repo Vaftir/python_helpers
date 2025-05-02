@@ -50,14 +50,14 @@ Este repositório reúne um conjunto de classes utilitárias para automação de
 
 Gera textos de chamados de suporte usando LangChain e OpenAI Chat ●
 
-* **Depedências**: `langchain-openai`([Introduction | 🦜️🔗 LangChain][1]), `openai`([GitHub][2])
+* **Depedências**: `langchain-openai`, `openai`
 * **Funcionalidades**: carrega prompt template, chama `ChatOpenAI`, retorna string formatada.
 
 ### 2. ConfigHandler
 
 Manipula arquivos JSON de configuração.
 
-* **Depedência**: módulo padrão `json`([Python documentation][3])
+* **Depedência**: módulo padrão `json`
 * **Métodos**:
 
   * `load_config()`, `get_data(key)`, `set_config_value()`, `delete_config_value()`, `save_config()`
@@ -66,15 +66,15 @@ Manipula arquivos JSON de configuração.
 
 Gerencia conexão e queries em MySQL.
 
-* **Depedência**: `mysql-connector-python`([PyPI][4])
-* **Context Manager**: suporte a `with` via protocolo ([Python documentation][5]).
+* **Depedência**: `mysql-connector-python`
+* **Context Manager**: suporte a `with` via protocolo 
 * **Métodos**: `connect()`, `execute_query()`, `execute_read_query()`, `disconnect()`, `__enter__()`, `__exit__()`.
 
 ### 4. ManipulaPastas
 
 Cria pastas e limpa arquivos em diretórios.
 
-* **Depedências**: `os`([Python documentation][6]), `glob`([Python documentation][7])
+* **Depedências**: `os`, `glob`
 * **Métodos**:
 
   * `cria_pastas(*pastas)`: `os.makedirs()` recursivo
@@ -95,8 +95,8 @@ Envio de e‑mail via SMTP com suporte a HTML, anexos, CC e BCC.
 
 * **Depedências**:
 
-  * `smtplib`([Python documentation][8])
-  * `email.message.EmailMessage`([Python documentation][9])
+  * `smtplib`
+  * `email.message.EmailMessage`
   * `datetime` (built‑in)
 * **Funcionalidades**:
 

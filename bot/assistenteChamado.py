@@ -1,7 +1,8 @@
+import datetime
 import getpass
 import os
 
-from modules.config.ConfigHandler import ConfigHandler
+from ConfigHandler import ConfigHandler
 
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -10,23 +11,23 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 
-  """
-  Author: Yago Faria
-  Date: 2023-10-03
-  Description: Essa classe é responsável por gerar 
-  o texto do chamado que será enviado para o suporte da Zanthus.
+  # """
+  # Author: Yago Faria
+  # Date: 2023-10-03
+  # Description: Essa classe é responsável por gerar 
+  # o texto do chamado que será enviado para o suporte da Zanthus.
   
-  input: str
-  output: str
+  # input: str
+  # output: str
   
-  Dependências:
-  - langchain
-  - dotenv
-  - getpass
-  - os
+  # Dependências:
+  # - langchain
+  # - dotenv
+  # - getpass
+  # - os
   
   
-  """
+  # """
 
 
 class AssistenteChamado:
@@ -54,13 +55,13 @@ class AssistenteChamado:
     return chain
   
   
-  def __init__(self, config_path = 'config/config.json'):
+  def __init__(self, config_path = 'config/config.json', assitente="Zanthus"):
     self.config = ConfigHandler(config_path).load_config()
     self.api_key = self.config['api_keys']['OPENAI_API_KEY']
     self.model = self.config['model']['model']
     self.temperature = self.config['model']['temperature']
     self.max_tokens = self.config['model']['max_tokens']
-    self.prompt_template = self.config['model']['prompt']
+    self.prompt_template = self.config['model']['prompt_zanthus'] if assitente == "Zanthus" else self.config['model']['prompt_csc']
     self.prompt = self._prompt()
     self.llm = self._llm_model()
     self.parser = StrOutputParser()
@@ -76,21 +77,21 @@ class AssistenteChamado:
     
 
 
-    """
-    if __name__ == "__main__":
-    openai = AssistenteChamado()
+
+
+if __name__ == "__main__":
+    openai = AssistenteChamado(assitente="Zanthus")
     resultado = openai.gerar_texto_chamado("O serviço mirage não está funcionando corretamente, já tentei reiniciá-lo e não funcionou. O que eu faço?")
     print(resultado)
-    
-    """
-    
-    
-
-    
+    print("\n\nTexto gerado com sucesso\n\n")
   
     
-  
-  
+#     openai = AssistenteChamado(assitente="Zanthus")
+#     minutos = 72
+#     hora_atual = datetime.datetime.now()
+#     hora_atual = hora_atual.strftime("%H:%M:%S")
+#     resultado = openai.gerar_texto_chamado(f" Servço mirage parado a {minutos} minutos, hora atual: {hora_atual}")
+#     print(resultado)
     
-
-   
+    
+    

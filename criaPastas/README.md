@@ -1,6 +1,3 @@
-Pensou por dois segundos
-
-
 ## Visão Geral
 
 A classe **ManipulaPastas** fornece métodos simples para criação de diretórios e limpeza de arquivos dentro deles. Ideal para preparar estruturas de pastas antes de processamentos, gravação de logs ou geração de resultados, garantindo que caminhos existam e estejam livres de arquivos antigos.
@@ -22,8 +19,9 @@ A classe **ManipulaPastas** fornece métodos simples para criação de diretóri
 ## Dependências
 
 * Python 3.6+
-* Módulos da biblioteca padrão:
 
+* Módulos da biblioteca padrão:
+  
   * `os`
   * `glob`
 
@@ -34,14 +32,15 @@ Nenhuma instalação adicional é necessária.
 ## Uso
 
 1. **Importe** e **instancie** a classe:
-
+   
    ```python
    from modules.arquivo.ManipulaPastas import ManipulaPastas
-
+   
    mp = ManipulaPastas()
    ```
-2. **Crie** uma ou mais pastas (aninhadas ou não):
 
+2. **Crie** uma ou mais pastas (aninhadas ou não):
+   
    ```python
    mp.cria_pastas('resultado', 'logs', 'logs/subpasta/pasta_x')
    # Saída:
@@ -49,8 +48,9 @@ Nenhuma instalação adicional é necessária.
    # Pasta criada: logs
    # Pasta criada: logs/subpasta/pasta_x
    ```
-3. **Limpe** todos os arquivos de um diretório, sem apagar a pasta:
 
+3. **Limpe** todos os arquivos de um diretório, sem apagar a pasta:
+   
    ```python
    mp.limpa_diretorio('logs')
    # Se houver arquivos:

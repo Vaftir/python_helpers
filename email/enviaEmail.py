@@ -2,7 +2,8 @@ import datetime
 import smtplib
 import os
 from email.message import EmailMessage
-from modules.config.ConfigHandler import ConfigHandler
+#from modules.config.ConfigHandler import ConfigHandler
+from ConfigHandler import ConfigHandler
 
 class EnviaEmail:
     def __init__(self, config_path="config/config.json"):
